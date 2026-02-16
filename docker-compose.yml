@@ -23,6 +23,8 @@ services:
   # =============================
   auth:
     build: ./auth
+    volumes:
+      - ./admin:/var/www
     container_name: auth
     depends_on:
       - auth-database
@@ -48,6 +50,8 @@ services:
   # =============================
   student:
     build: ./student
+    volumes:
+      - ./admin:/var/www
     container_name: student
     depends_on:
       - student-database
@@ -74,6 +78,8 @@ services:
   # =============================
   admin:
     build: ./admin
+    volumes:
+      - ./admin:/var/www
     container_name: admin 
     depends_on:
       - admin-database
@@ -100,6 +106,8 @@ services:
   # =============================
   notification:
     build: ./notification
+    volumes:
+      - ./admin:/var/www
     container_name: notification 
     depends_on:
       - notification-database

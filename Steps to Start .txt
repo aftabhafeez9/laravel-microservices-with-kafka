@@ -1,3 +1,10 @@
 Start Docker Desktop
 
 Run the Command : docker compose up --build
+
+
+to run Laravel Command : 
+	docker compose exec auth sh
+	docker compose exec admin sh
+	docker compose exec student sh
+	docker compose exec notification sh
