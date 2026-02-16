@@ -1,0 +1,3 @@
+Start Docker Desktop
+
+Run the Command : docker compose up --build

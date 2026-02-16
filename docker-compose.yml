@@ -25,13 +25,13 @@ services:
     build: ./auth
     container_name: auth
     depends_on:
-      - auth-db
+      - auth-database
     networks:
       - microservices-network
 
-  auth-db:
+  auth-database:
     image: postgres:15
-    container_name: auth-db
+    container_name: auth-database
     environment:
       POSTGRES_DB: auth_db
       POSTGRES_USER: auth_user
@@ -50,14 +50,14 @@ services:
     build: ./student
     container_name: student
     depends_on:
-      - student-db
+      - student-database
       - kafka
     networks:
       - microservices-network
 
-  student-db:
+  student-database:
     image: postgres:15
-    container_name: student-db
+    container_name: student-database
     environment:
       POSTGRES_DB: student_db
       POSTGRES_USER: student_user
@@ -76,14 +76,14 @@ services:
     build: ./admin
     container_name: admin 
     depends_on:
-      - admin-db
+      - admin-database
       - kafka
     networks:
       - microservices-network
 
-  admin-db:
+  admin-database:
     image: postgres:15
-    container_name: admin-db
+    container_name: admin-database
     environment:
       POSTGRES_DB: admin_db
       POSTGRES_USER: admin_user
@@ -102,14 +102,14 @@ services:
     build: ./notification
     container_name: notification 
     depends_on:
-      - notification-db
+      - notification-database
       - kafka
     networks:
       - microservices-network
 
-  notification-db:
+  notification-database:
     image: postgres:15
-    container_name: notification-db
+    container_name: notification-database
     environment:
       POSTGRES_DB: notification_db
       POSTGRES_USER: notification_user
@@ -165,3 +165,4 @@ volumes:
   student-db-data:
   admin-db-data:
   notification-db-data:
+
