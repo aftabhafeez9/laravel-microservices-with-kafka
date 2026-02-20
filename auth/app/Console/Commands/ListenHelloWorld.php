@@ -25,6 +25,6 @@ class ListenHelloWorld extends Command
      */
     public function handle()
     {
-        //
+        
     }
 }

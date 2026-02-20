@@ -24,7 +24,9 @@ services:
   auth:
     build: ./auth
     volumes:
-      - ./admin:/var/www
+      - ./auth:/var/www/auth
+      - auth-vendor:/var/www/auth/vendor
+    working_dir: /var/www/auth
     container_name: auth
     depends_on:
       - auth-database
@@ -51,7 +53,9 @@ services:
   student:
     build: ./student
     volumes:
-      - ./admin:/var/www
+      - ./student:/var/www/student
+      - student-vendor:/var/www/student/vendor
+    working_dir: /var/www/student
     container_name: student
     depends_on:
       - student-database
@@ -79,7 +83,9 @@ services:
   admin:
     build: ./admin
     volumes:
-      - ./admin:/var/www
+      - ./admin:/var/www/admin
+      - admin-vendor:/var/www/admin/vendor
+    working_dir: /var/www/admin
     container_name: admin 
     depends_on:
       - admin-database
@@ -107,7 +113,9 @@ services:
   notification:
     build: ./notification
     volumes:
-      - ./admin:/var/www
+      - ./notification:/var/www/notification
+      - notification-vendor:/var/www/notification/vendor
+    working_dir: /var/www/notification
     container_name: notification 
     depends_on:
       - notification-database
@@ -173,4 +181,7 @@ volumes:
   student-db-data:
   admin-db-data:
   notification-db-data:
-
+  auth-vendor:
+  student-vendor:
+  admin-vendor:
+  notification-vendor:

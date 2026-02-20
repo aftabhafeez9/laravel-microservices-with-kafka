@@ -2,7 +2,7 @@
 FROM php:8.4-fpm
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/notification
 
 # Install system dependencies for Laravel + PostgreSQL + Kafka
 RUN apt-get update && apt-get install -y \
